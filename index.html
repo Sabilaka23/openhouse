@@ -1,0 +1,2995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Unicorn Preschool</title>
+    <style>
+        /* Basic Resets */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Enable smooth scrolling for anchor links */
+        }
+
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            line-height: 1.5;
+            color: #333;
+            background-color: #fdf2f8; /* from-pink-100 */
+        }
+
+        /* Utility Classes (derived from Tailwind) */
+        .container {
+            max-width: 1280px; /* max-w-7xl */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem; /* px-4 */
+            padding-right: 1rem; /* px-4 */
+        }
+
+        .flex {
+            display: flex;
+        }
+        .grid {
+            display: grid;
+        }
+        .items-center {
+            align-items: center;
+        }
+        .justify-center {
+            justify-content: center;
+        }
+        .justify-between {
+            justify-content: space-between;
+        }
+        .flex-col {
+            flex-direction: column;
+        }
+        .gap-1 {
+            gap: 0.25rem;
+        }
+        .gap-2 {
+            gap: 0.5rem;
+        }
+        .gap-3 {
+            gap: 0.75rem;
+        }
+        .gap-4 {
+            gap: 1rem;
+        }
+        .gap-6 {
+            gap: 1.5rem;
+        }
+        .gap-8 {
+            gap: 2rem;
+        }
+
+        .p-4 {
+            padding: 1rem;
+        }
+        .p-6 {
+            padding: 1.5rem;
+        }
+        .p-8 {
+            padding: 2rem;
+        }
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .py-12 {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+        .py-16 {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .px-6 {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        .px-8 {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        .px-12 {
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem;
+        }
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+        .mb-12 {
+            margin-bottom: 3rem;
+        }
+        .mb-16 {
+            margin-bottom: 4rem;
+        }
+        .mt-1 {
+            margin-top: 0.25rem;
+        }
+        .mt-4 {
+            margin-top: 1rem;
+        }
+        .mt-8 {
+            margin-top: 2rem;
+        }
+        .mt-12 {
+            margin-top: 3rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+        .text-left {
+            text-align: left;
+        }
+        .text-sm {
+            font-size: 0.875rem;
+        }
+        .text-lg {
+            font-size: 1.125rem;
+        }
+        .text-xl {
+            font-size: 1.25rem;
+        }
+        .text-2xl {
+            font-size: 1.5rem;
+        }
+        .text-3xl {
+            font-size: 1.875rem;
+        }
+        .text-4xl {
+            font-size: 2.25rem;
+        }
+        .text-6xl {
+            font-size: 3.75rem;
+        }
+
+        .font-medium {
+            font-weight: 500;
+        }
+        .font-semibold {
+            font-weight: 600;
+        }
+        .font-bold {
+            font-weight: 700;
+        }
+        .font-extrabold {
+            font-weight: 800;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+        .text-gray-300 {
+            color: #d1d5db;
+        }
+        .text-gray-400 {
+            color: #9ca3af;
+        }
+        .text-gray-500 {
+            color: #6b7280;
+        }
+        .text-gray-600 {
+            color: #4b5563;
+        }
+        .text-gray-700 {
+            color: #374151;
+        }
+        .text-gray-800 {
+            color: #1f2937;
+        }
+        .text-yellow-500 {
+            color: #f59e0b;
+        }
+        .text-yellow-700 {
+            color: #b45309;
+        }
+        .text-yellow-800 {
+            color: #92400e;
+        }
+        .text-purple-400 {
+            color: #a78bfa;
+        }
+        .text-purple-600 {
+            color: #9333ea;
+        }
+        .text-purple-700 {
+            color: #7e22ce;
+        }
+        .text-purple-800 {
+            color: #6b21a8;
+        }
+        .text-pink-500 {
+            color: #ec4899;
+        }
+        .text-pink-700 {
+            color: #be185d;
+        }
+        .text-red-500 {
+            color: #ef4444;
+        }
+        .text-red-600 {
+            color: #dc2626;
+        }
+        .text-red-700 {
+            color: #b91c1c;
+        }
+        .text-green-500 {
+            color: #22c55e;
+        }
+        .text-green-600 {
+            color: #16a34a;
+        }
+        .text-green-700 {
+            color: #047857;
+        }
+        .text-green-800 {
+            color: #065f46;
+        }
+        .text-blue-500 {
+            color: #3b82f6;
+        }
+        .text-blue-600 {
+            color: #2563eb;
+        }
+        .text-blue-700 {
+            color: #1d4ed8;
+        }
+        .text-blue-800 {
+            color: #1e40af;
+        }
+        .text-orange-500 {
+            color: #f97316;
+        }
+        .text-orange-600 {
+            color: #ea580c;
+        }
+        .text-orange-700 {
+            color: #c2410c;
+        }
+        .text-teal-700 {
+            color: #0f766e;
+        }
+        .text-indigo-700 {
+            color: #4338ca;
+        }
+
+        .bg-yellow-50 {
+            background-color: #fffbeb;
+        }
+        .bg-yellow-100 {
+            background-color: #fef3c7;
+        }
+        .bg-blue-50 {
+            background-color: #eff6ff;
+        }
+        .bg-blue-100 {
+            background-color: #dbeafe;
+        }
+        .bg-blue-500 {
+            background-color: #3b82f6;
+        }
+        .bg-purple-50 {
+            background-color: #faf5ff;
+        }
+        .bg-purple-100 {
+            background-color: #f3e8ff;
+        }
+        .bg-purple-500 {
+            background-color: #a855f7;
+        }
+        .bg-pink-50 {
+            background-color: #fdf2f8;
+        }
+        .bg-pink-100 {
+            background-color: #fce7f3;
+        }
+        .bg-pink-500 {
+            background-color: #ec4899;
+        }
+        .bg-red-100 {
+            background-color: #fee2e2;
+        }
+        .bg-red-500 {
+            background-color: #ef4444;
+        }
+        .bg-green-50 {
+            background-color: #f0fdf4;
+        }
+        .bg-green-100 {
+            background-color: #dcfce7;
+        }
+        .bg-green-500 {
+            background-color: #22c55e;
+        }
+        .bg-orange-100 {
+            background-color: #ffedd5;
+        }
+        .bg-orange-500 {
+            background-color: #f97316;
+        }
+        .bg-teal-100 {
+            background-color: #ccfbf1;
+        }
+        .bg-teal-500 {
+            background-color: #14b8a6;
+        }
+        .bg-indigo-100 {
+            background-color: #e0e7ff;
+        }
+        .bg-gray-100 {
+            background-color: #f3f4f6;
+        }
+        .bg-gray-800 {
+            background-color: #1f2937;
+        }
+        .bg-white {
+            background-color: #fff;
+        }
+        .bg-black {
+            background-color: #000;
+        }
+
+        .bg-gradient-to-b {
+            background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+        }
+        .bg-gradient-to-r {
+            background-image: linear-gradient(to right, var(--tw-gradient-stops));
+        }
+        .bg-gradient-to-br {
+            background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+        }
+
+        .from-pink-100 {
+            --tw-gradient-from: #fce7f3;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(252, 231, 243, 0));
+        }
+        .via-purple-100 {
+            --tw-gradient-stops: var(--tw-gradient-from), #f3e8ff, var(--tw-gradient-to, rgba(243, 232, 255, 0));
+        }
+        .to-blue-100 {
+            --tw-gradient-to: #dbeafe;
+        }
+        .from-purple-50 {
+            --tw-gradient-from: #faf5ff;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(250, 245, 255, 0));
+        }
+        .to-pink-50 {
+            --tw-gradient-to: #fdf2f8;
+        }
+        .from-blue-50 {
+            --tw-gradient-from: #eff6ff;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(239, 246, 255, 0));
+        }
+        .to-purple-50 {
+            --tw-gradient-to: #faf5ff;
+        }
+        .from-purple-100 {
+            --tw-gradient-from: #f3e8ff;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(243, 232, 255, 0));
+        }
+        .to-pink-100 {
+            --tw-gradient-to: #fce7f3;
+        }
+        .from-purple-500 {
+            --tw-gradient-from: #a855f7;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(168, 85, 247, 0));
+        }
+        .to-pink-500 {
+            --tw-gradient-to: #ec4899;
+        }
+        .hover\:from-purple-600:hover {
+            --tw-gradient-from: #9333ea;
+        }
+        .hover\:to-pink-600:hover {
+            --tw-gradient-to: #db2777;
+        }
+        .from-pink-500 {
+            --tw-gradient-from: #ec4899;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(236, 72, 153, 0));
+        }
+        .to-red-500 {
+            --tw-gradient-to: #ef4444;
+        }
+        .hover\:from-pink-600:hover {
+            --tw-gradient-from: #db2777;
+        }
+        .hover\:to-red-600:hover {
+            --tw-gradient-to: #dc2626;
+        }
+        .from-blue-100 {
+            --tw-gradient-from: #dbeafe;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(219, 234, 254, 0));
+        }
+        .to-blue-200 {
+            --tw-gradient-to: #bfdbfe;
+        }
+        .from-green-100 {
+            --tw-gradient-from: #dcfce7;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(220, 252, 231, 0));
+        }
+        .to-green-200 {
+            --tw-gradient-to: #bbf7d0;
+        }
+        .from-indigo-100 {
+            --tw-gradient-from: #e0e7ff;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(224, 231, 255, 0));
+        }
+        .to-purple-100 {
+            --tw-gradient-to: #f3e8ff;
+        }
+        .from-blue-50 {
+            --tw-gradient-from: #eff6ff;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(239, 246, 255, 0));
+        }
+        .to-blue-100 {
+            --tw-gradient-to: #dbeafe;
+        }
+        .from-purple-50 {
+            --tw-gradient-from: #faf5ff;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(250, 245, 255, 0));
+        }
+        .to-purple-100 {
+            --tw-gradient-to: #f3e8ff;
+        }
+        .from-pink-50 {
+            --tw-gradient-from: #fdf2f8;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(253, 242, 248, 0));
+        }
+        .to-pink-100 {
+            --tw-gradient-to: #fce7f3;
+        }
+        .from-green-50 {
+            --tw-gradient-from: #f0fdf4;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(240, 253, 244, 0));
+        }
+        .to-green-100 {
+            --tw-gradient-to: #dcfce7;
+        }
+        .from-orange-50 {
+            --tw-gradient-from: #fff7ed;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 247, 237, 0));
+        }
+        .to-orange-100 {
+            --tw-gradient-to: #ffedd5;
+        }
+        .from-teal-50 {
+            --tw-gradient-from: #f0fdfa;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(240, 253, 250, 0));
+        }
+        .to-teal-100 {
+            --tw-gradient-to: #ccfbf1;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+        .rounded-full {
+            border-radius: 9999px;
+        }
+
+        .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .shadow-xl {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .border-t {
+            border-top-width: 1px;
+        }
+        .border-2 {
+            border-width: 2px;
+        }
+        .border-l-4 {
+            border-left-width: 4px;
+        }
+        .border-gray-300 {
+            border-color: #d1d5db;
+        }
+        .border-gray-700 {
+            border-color: #374151;
+        }
+        .border-yellow-100 {
+            border-color: #fef3c7;
+        }
+        .border-yellow-200 {
+            border-color: #fde68a;
+        }
+        .border-yellow-300 {
+            border-color: #fcd34d;
+        }
+        .border-blue-200 {
+            border-color: #bfdbfe;
+        }
+        .border-blue-300 {
+            border-color: #93c5fd;
+        }
+        .border-purple-200 {
+            border-color: #e9d5ff;
+        }
+        .border-purple-300 {
+            border-color: #d8b4fe;
+        }
+        .border-purple-500 {
+            border-color: #a855f7;
+        }
+        .border-red-200 {
+            border-color: #fecaca;
+        }
+        .border-red-500 {
+            border-color: #ef4444;
+        }
+        .border-green-200 {
+            border-color: #bbf7d0;
+        }
+        .border-green-300 {
+            border-color: #86efac;
+        }
+        .border-green-500 {
+            border-color: #22c55e;
+        }
+        .border-orange-200 {
+            border-color: #fed7aa;
+        }
+        .border-orange-500 {
+            border-color: #f97316;
+        }
+        .border-pink-200 {
+            border-color: #fbcfe8;
+        }
+        .border-pink-500 {
+            border-color: #ec4899;
+        }
+        .border-indigo-300 {
+            border-color: #a5b4fc;
+        }
+        .border-teal-200 {
+            border-color: #99f6e4;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+        .w-fit {
+            width: fit-content;
+        }
+        .h-full {
+            height: 100%;
+        }
+        .h-\[600px\] {
+            height: 600px;
+        }
+        .h-\[300px\] {
+            height: 300px;
+        }
+        .h-\[225px\] {
+            height: 225px;
+        }
+        .h-\[450px\] {
+            height: 450px;
+        }
+
+        .max-w-md {
+            max-width: 28rem;
+        }
+        .max-w-3xl {
+            max-width: 48rem;
+        }
+        .max-w-4xl {
+            max-width: 56rem;
+        }
+        .max-w-6xl {
+            max-width: 72rem;
+        }
+
+        .relative {
+            position: relative;
+        }
+        .absolute {
+            position: absolute;
+        }
+        .inset-0 {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        .sticky {
+            position: sticky;
+        }
+        .top-0 {
+            top: 0;
+        }
+        .z-0 {
+            z-index: 0;
+        }
+        .z-10 {
+            z-index: 10;
+        }
+        .z-20 {
+            z-index: 20;
+        }
+        .z-50 {
+            z-index: 50;
+        }
+        .overflow-hidden {
+            overflow: hidden;
+        }
+
+        .object-cover {
+            object-fit: cover;
+        }
+        .object-contain {
+            object-fit: contain;
+        }
+
+        .leading-tight {
+            line-height: 1.25;
+        }
+        .leading-relaxed {
+            line-height: 1.625;
+        }
+        .drop-shadow-lg {
+            filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
+        }
+        .drop-shadow-md {
+            filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07)) drop-shadow(0 2px 2px rgba(0, 0, 0, 0.06));
+        }
+
+        .transform {
+            transform: var(--tw-transform);
+        }
+        .hover\:scale-105:hover {
+            --tw-scale-x: 1.05;
+            --tw-scale-y: 1.05;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+                skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        }
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        .transition-colors {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        .transition-shadow {
+            transition-property: box-shadow;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        .transition-transform {
+            transition-property: transform;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+        .line-through {
+            text-decoration: line-through;
+        }
+        .tabular-nums {
+            font-variant-numeric: tabular-nums;
+        }
+        .cursor-pointer {
+            cursor: pointer;
+        }
+
+        /* Specific Component Styles */
+
+        /* Navbar */
+        .navbar {
+            background-color: #fffbeb; /* bg-yellow-50 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .navbar-content {
+            padding-top: 1rem; /* py-4 */
+            padding-bottom: 1rem; /* py-4 */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; /* gap-2 */
+        }
+
+        .navbar-logo img {
+            width: 200px;
+            height: 150px;
+            border-radius: 0.5rem; /* rounded-lg */
+        }
+
+        .navbar-links-desktop {
+            display: none; /* hidden */
+            align-items: center;
+            gap: 1.5rem; /* gap-6 */
+        }
+
+        .nav-link {
+            color: #1f2937; /* text-gray-800 */
+            font-weight: 500; /* font-medium */
+            transition-property: color;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+            text-decoration: none; /* Ensure links don't have underline */
+        }
+
+        .nav-link:hover {
+            color: #b45309; /* hover:text-yellow-700 */
+        }
+
+        .register-button {
+            background-image: linear-gradient(to right, #ec4899, #ef4444); /* bg-gradient-to-r from-pink-500 to-red-500 */
+            color: #fff;
+            padding: 0.5rem 1.5rem; /* px-6 py-2 */
+            border-radius: 9999px; /* rounded-full */
+            font-weight: 600; /* font-semibold */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            border: none;
+            cursor: pointer;
+            transition-property: background-image;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+            text-decoration: none; /* Ensure links don't have underline */
+            display: inline-block; /* For padding to apply correctly */
+        }
+
+        .register-button:hover {
+            background-image: linear-gradient(to right, #db2777, #dc2626); /* hover:from-pink-600 hover:to-red-600 */
+        }
+
+        .mobile-menu-button {
+            display: block; /* md:hidden */
+        }
+
+        /* Hidden checkbox for mobile menu toggle */
+        .mobile-menu-checkbox {
+            display: none;
+        }
+
+        .menu-toggle-label {
+            display: block;
+            background-color: transparent;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: #4b5563;
+            position: relative;
+            z-index: 60; /* Ensure label is above mobile menu */
+        }
+
+        .menu-toggle-label .menu-icon {
+            display: block; /* Show hamburger by default */
+            height: 1.5rem;
+            width: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .menu-toggle-label .close-icon {
+            display: none; /* Hide close icon by default */
+            height: 1.5rem;
+            width: 1.5rem;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+        }
+
+        /* When checkbox is checked, show close icon and hide hamburger */
+        .mobile-menu-checkbox:checked + .menu-toggle-label .menu-icon {
+            display: none;
+        }
+
+        .mobile-menu-checkbox:checked + .menu-toggle-label .close-icon {
+            display: block;
+        }
+
+        .navbar-links-mobile {
+            display: none; /* Hidden by default */
+            background-color: #fffbeb; /* bg-yellow-50 */
+            border-top: 1px solid #fef3c7; /* border-t border-yellow-100 */
+            padding-top: 1rem; /* py-4 */
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 100%; /* Position below navbar */
+            z-index: 40; /* Below label, above other content */
+        }
+        .navbar-links-mobile > a, .navbar-links-mobile > button {
+            margin-bottom: 1rem; /* Replaces space-y */
+        }
+        .navbar-links-mobile > a:last-child, .navbar-links-mobile > button:last-child {
+            margin-bottom: 0;
+        }
+
+        /* When checkbox is checked, show the mobile navigation */
+        .mobile-menu-checkbox:checked ~ .navbar-links-mobile {
+            display: flex; /* Show the mobile menu */
+        }
+
+        .nav-link-mobile {
+            color: #1f2937; /* text-gray-800 */
+            font-weight: 500; /* font-medium */
+            transition-property: color;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+            width: 100%;
+            text-align: center;
+            padding-top: 0.5rem; /* py-2 */
+            padding-bottom: 0.5rem; /* py-2 */
+            text-decoration: none;
+        }
+
+        .nav-link-mobile:hover {
+            color: #b45309; /* hover:text-yellow-700 */
+        }
+
+        .register-button-mobile {
+            background-image: linear-gradient(to right, #ec4899, #ef4444); /* bg-gradient-to-r from-pink-500 to-red-500 */
+            color: #fff;
+            padding: 0.75rem 2rem; /* px-8 py-3 */
+            border-radius: 9999px; /* rounded-full */
+            font-weight: 600; /* font-semibold */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            width: fit-content; /* w-fit */
+            border: none;
+            cursor: pointer;
+            transition-property: background-image;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .register-button-mobile:hover {
+            background-image: linear-gradient(to right, #db2777, #dc2626); /* hover:from-pink-600 hover:to-red-600 */
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* bg-black opacity-50 */
+            z-index: 10;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 20;
+            color: #fff;
+            padding: 1rem; /* p-4 */
+            max-width: 56rem; /* max-w-4xl */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-content h1 {
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 800; /* font-extrabold */
+            line-height: 1.25; /* leading-tight */
+            margin-bottom: 1.5rem; /* mb-6 */
+            filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1)); /* drop-shadow-lg */
+        }
+
+        .hero-content p {
+            font-size: 1.125rem; /* text-lg */
+            margin-bottom: 2rem; /* mb-8 */
+            filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07)) drop-shadow(0 2px 2px rgba(0, 0, 0, 0.06)); /* drop-shadow-md */
+        }
+
+        .hero-button {
+            background-image: linear-gradient(to right, #a855f7, #ec4899); /* bg-gradient-to-r from-purple-500 to-pink-500 */
+            color: #fff;
+            font-size: 1.25rem; /* text-xl */
+            padding: 1rem 3rem; /* px-12 py-4 */
+            border-radius: 9999px; /* rounded-full */
+            font-weight: 700; /* font-bold */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            border: none;
+            cursor: pointer;
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+            transform: var(--tw-transform);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .hero-button:hover {
+            background-image: linear-gradient(to right, #9333ea, #db2777); /* hover:from-purple-600 hover:to-pink-600 */
+            --tw-scale-x: 1.05;
+            --tw-scale-y: 1.05;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+                skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem; /* mb-12 */
+        }
+
+        .section-header h2 {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            color: #1f2937; /* text-gray-800 */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .section-header p {
+            font-size: 1.125rem; /* text-lg */
+            color: #4b5563; /* text-gray-600 */
+        }
+
+        /* Section Buttons */
+        .section-button-wrapper {
+            text-align: center;
+            margin-top: 3rem; /* mt-12 */
+        }
+
+        .section-button {
+            background-image: linear-gradient(to right, #a855f7, #ec4899); /* bg-gradient-to-r from-purple-500 to-pink-500 */
+            color: #fff;
+            font-size: 1.25rem; /* text-xl */
+            padding: 1rem 3rem; /* px-12 py-4 */
+            border-radius: 9999px; /* rounded-full */
+            font-weight: 700; /* font-bold */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            border: none;
+            cursor: pointer;
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+            transform: var(--tw-transform);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .section-button:hover {
+            background-image: linear-gradient(to right, #9333ea, #db2777); /* hover:from-purple-600 hover:to-pink-600 */
+            --tw-scale-x: 1.05;
+            --tw-scale-y: 1.05;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+                skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        }
+
+        /* Card Component (Base) */
+        .card {
+            background-color: #fff;
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* shadow-sm */
+            overflow: hidden;
+        }
+
+        .card-content {
+            padding: 1.5rem; /* p-6 */
+        }
+
+        .card-header {
+            padding: 1.5rem; /* p-6 */
+        }
+
+        /* About Us Section */
+        .about-section {
+            padding-top: 4rem; /* py-16 */
+            padding-bottom: 4rem; /* py-16 */
+            background-color: #eff6ff; /* bg-blue-50 */
+        }
+
+        .benefits-grid {
+            display: grid;
+            gap: 1.5rem; /* gap-6 */
+            margin-bottom: 3rem; /* mb-12 */
+        }
+
+        .benefit-card {
+            border: 2px solid #e9d5ff; /* border-2 border-purple-200 */
+            transition-property: border-color;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+
+        .benefit-card:hover {
+            border-color: #a78bfa; /* hover:border-purple-400 */
+        }
+
+        .check-icon {
+            height: 1.5rem; /* h-6 */
+            width: 1.5rem; /* w-6 */
+            color: #22c55e; /* text-green-500 */
+            flex-shrink: 0;
+            font-size: 1.5rem;
+        }
+
+        .about-content-grid {
+            display: grid;
+            gap: 2rem; /* gap-8 */
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            height: 450px;
+            object-fit: contain;
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+        }
+
+        .about-text-content h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: #9333ea; /* text-purple-600 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem; /* space-y-4 */
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem; /* gap-3 */
+        }
+
+        .feature-item h4 {
+            font-weight: 600; /* font-semibold */
+            color: #1f2937; /* text-gray-800 */
+        }
+
+        .feature-item p {
+            color: #4b5563; /* text-gray-600 */
+        }
+
+        .star-icon {
+            height: 1.25rem; /* h-5 */
+            width: 1.25rem; /* w-5 */
+            color: #f59e0b; /* text-yellow-500 */
+            margin-top: 0.25rem; /* mt-1 */
+            font-size: 1.25rem;
+        }
+
+        .users-icon {
+            height: 1.25rem; /* h-5 */
+            width: 1.25rem; /* w-5 */
+            color: #3b82f6; /* text-blue-500 */
+            margin-top: 0.25rem; /* mt-1 */
+            font-size: 1.25rem;
+        }
+
+        .shield-icon {
+            height: 1.25rem; /* h-5 */
+            width: 1.25rem; /* w-5 */
+            color: #22c55e; /* text-green-500 */
+            margin-top: 0.25rem; /* mt-1 */
+            font-size: 1.25rem;
+        }
+
+        /* Programs Section */
+        .programs-section {
+            padding-top: 4rem; /* py-16 */
+            padding-bottom: 4rem; /* py-16 */
+            background-image: linear-gradient(to right, #faf5ff, #fdf2f8); /* bg-gradient-to-r from-purple-50 to-pink-50 */
+        }
+
+        .subsection {
+            margin-bottom: 4rem; /* mb-16 */
+        }
+
+        .subsection h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: #1f2937; /* text-gray-800 */
+            text-align: center;
+            margin-bottom: 2rem; /* mb-8 */
+        }
+
+        .subsection-description {
+            font-size: 1.125rem; /* text-lg */
+            color: #4b5563; /* text-gray-600 */
+            margin-bottom: 0.5rem; /* mb-2 */
+            text-align: center;
+        }
+
+        .badge-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem; /* mb-8 */
+        }
+
+        .badge {
+            font-size: 0.875rem; /* text-sm */
+            padding: 0.5rem 1rem; /* px-4 py-2 */
+            border-width: 1px; /* border */
+            border-radius: 0.375rem; /* rounded-md */
+        }
+
+        .badge-purple {
+            border-color: #d8b4fe; /* border-purple-300 */
+            color: #7e22ce; /* text-purple-700 */
+        }
+
+        .badge-indigo {
+            border-color: #a5b4fc; /* border-indigo-300 */
+            color: #4338ca; /* text-indigo-700 */
+        }
+
+        /* Care Programs */
+        .program-cards-grid {
+            display: grid;
+            gap: 2rem; /* gap-8 */
+        }
+
+        .program-card {
+            border-width: 2px; /* border-2 */
+            transition-property: box-shadow;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+
+        .program-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* hover:shadow-xl */
+        }
+
+        .program-card-yellow {
+            border-color: #fcd34d; /* border-yellow-300 */
+        }
+        .program-card-blue {
+            border-color: #93c5fd; /* border-blue-300 */
+        }
+        .program-card-green {
+            border-color: #86efac; /* border-green-300 */
+        }
+
+        .program-image-wrapper {
+            position: relative;
+            height: 300px;
+        }
+
+        .program-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 0.5rem; /* rounded-lg */
+        }
+
+        .program-card-header-yellow {
+            background-color: #fef3c7; /* bg-yellow-100 */
+        }
+        .program-card-header-blue {
+            background-color: #dbeafe; /* bg-blue-100 */
+        }
+        .program-card-header-green {
+            background-color: #dcfce7; /* bg-green-100 */
+        }
+
+        .program-card-header {
+            text-align: center;
+        }
+
+        .program-icon-circle {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem; /* mb-4 */
+            padding: 1rem; /* p-4 */
+            background-color: #fff;
+            border-radius: 9999px; /* rounded-full */
+            width: fit-content;
+            font-size: 2.25rem; /* text-4xl */
+        }
+
+        .program-title {
+            font-size: 1.5rem; /* text-2xl */
+        }
+
+        .program-card-header-yellow .program-title {
+            color: #92400e; /* text-yellow-800 */
+        }
+        .program-card-header-blue .program-title {
+            color: #1e40af; /* text-blue-800 */
+        }
+        .program-card-header-green .program-title {
+            color: #065f46; /* text-green-800 */
+        }
+
+        .program-description {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 600; /* font-semibold */
+        }
+
+        .program-card-header-yellow .program-description {
+            color: #b45309; /* text-yellow-700 */
+        }
+        .program-card-header-blue .program-description {
+            color: #1d4ed8; /* text-blue-700 */
+        }
+        .program-card-header-green .program-description {
+            color: #047857; /* text-green-700 */
+        }
+
+        .program-card-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem; /* space-y-3 */
+            color: #4b5563; /* text-gray-600 */
+        }
+
+        .program-card-content ul li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; /* gap-2 */
+        }
+
+        .check-icon-small {
+            height: 1rem; /* h-4 */
+            width: 1rem; /* w-4 */
+            color: #22c55e; /* text-green-500 */
+            font-size: 1rem;
+        }
+
+        /* Learning Activities */
+        .activity-cards-grid {
+            display: grid;
+            gap: 2rem; /* gap-8 */
+        }
+
+        .activity-card {
+            border-width: 2px; /* border-2 */
+            transition-property: border-color, box-shadow;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+
+        .activity-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* hover:shadow-lg */
+        }
+
+        .activity-card-red {
+            border-color: #fecaca; /* border-red-200 */
+        }
+        .activity-card-red:hover {
+            border-color: #ef4444; /* hover:border-red-400 */
+        }
+        .activity-card-pink {
+            border-color: #fbcfe8; /* border-pink-200 */
+        }
+        .activity-card-pink:hover {
+            border-color: #ec4899; /* hover:border-pink-400 */
+        }
+        .activity-card-orange {
+            border-color: #fed7aa; /* border-orange-200 */
+        }
+        .activity-card-orange:hover {
+            border-color: #f97316; /* hover:border-orange-400 */
+        }
+        .activity-card-green {
+            border-color: #bbf7d0; /* border-green-200 */
+        }
+        .activity-card-green:hover {
+            border-color: #22c55e; /* hover:border-green-400 */
+        }
+        .activity-card-blue {
+            border-color: #bfdbfe; /* border-blue-200 */
+        }
+        .activity-card-blue:hover {
+            border-color: #3b82f6; /* hover:border-blue-400 */
+        }
+        .activity-card-purple {
+            border-color: #e9d5ff; /* border-purple-200 */
+        }
+        .activity-card-purple:hover {
+            border-color: #a78bfa; /* hover:border-purple-400 */
+        }
+
+        .activity-image-wrapper {
+            position: relative;
+            height: 300px;
+        }
+
+        .activity-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 0.5rem; /* rounded-lg */
+        }
+
+        .activity-card-header {
+            text-align: center;
+        }
+
+        .activity-icon-circle {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem; /* mb-4 */
+            padding: 1rem; /* p-4 */
+            border-radius: 9999px; /* rounded-full */
+            width: fit-content;
+            font-size: 1.875rem; /* text-3xl */
+        }
+
+        .activity-icon-red {
+            background-color: #fee2e2; /* bg-red-100 */
+        }
+        .activity-icon-pink {
+            background-color: #fce7f3; /* bg-pink-100 */
+        }
+        .activity-icon-orange {
+            background-color: #ffedd5; /* bg-orange-100 */
+        }
+        .activity-icon-green {
+            background-color: #dcfce7; /* bg-green-100 */
+        }
+        .activity-icon-blue {
+            background-color: #dbeafe; /* bg-blue-100 */
+        }
+        .activity-icon-purple {
+            background-color: #f3e8ff; /* bg-purple-100 */
+        }
+
+        .activity-title {
+            font-size: 1.25rem; /* text-xl */
+        }
+
+        .activity-card-red .activity-title {
+            color: #b91c1c; /* text-red-700 */
+        }
+        .activity-card-pink .activity-title {
+            color: #be185d; /* text-pink-700 */
+        }
+        .activity-card-orange .activity-title {
+            color: #c2410c; /* text-orange-700 */
+        }
+        .activity-card-green .activity-title {
+            color: #047857; /* text-green-700 */
+        }
+        .activity-card-blue .activity-title {
+            color: #1d4ed8; /* text-blue-700 */
+        }
+        .activity-card-purple .activity-title {
+            color: #7e22ce; /* text-purple-700 */
+        }
+
+        .activity-card-content p {
+            color: #4b5563; /* text-gray-600 */
+            text-align: center;
+        }
+
+        /* Knowledge Objectives */
+        .objective-cards-grid {
+            display: grid;
+            gap: 1.5rem; /* gap-6 */
+        }
+
+        .objective-card {
+            border-left-width: 4px; /* border-l-4 */
+            transition-property: box-shadow;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+
+        .objective-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* hover:shadow-lg */
+        }
+
+        .objective-card-purple {
+            border-left-color: #a855f7; /* border-l-purple-500 */
+        }
+        .objective-card-green {
+            border-left-color: #22c55e; /* border-l-green-500 */
+        }
+        .objective-card-blue {
+            border-left-color: #3b82f6; /* border-l-blue-500 */
+        }
+        .objective-card-orange {
+            border-left-color: #f97316; /* border-l-orange-500 */
+        }
+        .objective-card-red {
+            border-left-color: #ef4444; /* border-l-red-500 */
+        }
+        .objective-card-pink {
+            border-left-color: #ec4899; /* border-l-pink-500 */
+        }
+
+        .objective-image-wrapper {
+            position: relative;
+            height: 300px;
+        }
+
+        .objective-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 0.5rem; /* rounded-lg */
+        }
+
+        .objective-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem; /* gap-3 */
+        }
+
+        .objective-icon-circle {
+            padding: 0.5rem; /* p-2 */
+            border-radius: 0.5rem; /* rounded-lg */
+            font-size: 1.25rem; /* text-xl */
+        }
+
+        .objective-icon-purple {
+            background-color: #f3e8ff; /* bg-purple-100 */
+            color: #9333ea; /* text-purple-600 */
+        }
+        .objective-icon-green {
+            background-color: #dcfce7; /* bg-green-100 */
+            color: #22c55e; /* text-green-600 */
+        }
+        .objective-icon-blue {
+            background-color: #dbeafe; /* bg-blue-100 */
+            color: #3b82f6; /* text-blue-600 */
+        }
+        .objective-icon-orange {
+            background-color: #ffedd5; /* bg-orange-100 */
+            color: #f97316; /* text-orange-600 */
+        }
+        .objective-icon-red {
+            background-color: #fee2e2; /* bg-red-100 */
+            color: #ef4444; /* text-red-600 */
+        }
+        .objective-icon-pink {
+            background-color: #fce7f3; /* bg-pink-100 */
+            color: #ec4899; /* text-pink-600 */
+        }
+
+        .objective-title {
+            font-size: 1.125rem; /* text-lg */
+        }
+
+        .objective-card-purple .objective-title {
+            color: #7e22ce; /* text-purple-700 */
+        }
+        .objective-card-green .objective-title {
+            color: #047857; /* text-green-700 */
+        }
+        .objective-card-blue .objective-title {
+            color: #1d4ed8; /* text-blue-700 */
+        }
+        .objective-card-orange .objective-title {
+            color: #c2410c; /* text-orange-700 */
+        }
+        .objective-card-red .objective-title {
+            color: #b91c1c; /* text-red-700 */
+        }
+        .objective-card-pink .objective-title {
+            color: #be185d; /* text-pink-700 */
+        }
+
+        .objective-card-content p {
+            color: #4b5563; /* text-gray-600 */
+            font-size: 0.875rem; /* text-sm */
+        }
+
+        /* 21st Century Skills */
+        .skill-cards-grid {
+            display: grid;
+            gap: 2rem; /* gap-8 */
+        }
+
+        .skill-card {
+            border-width: 2px; /* border-2 */
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+            transform: var(--tw-transform);
+        }
+
+        .skill-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* hover:shadow-xl */
+            --tw-scale-x: 1.05;
+            --tw-scale-y: 1.05;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+                skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        }
+
+        .skill-card-blue {
+            background-image: linear-gradient(to bottom right, #eff6ff, #dbeafe); /* bg-gradient-to-br from-blue-50 to-blue-100 */
+            border-color: #bfdbfe; /* border-blue-200 */
+        }
+        .skill-card-purple {
+            background-image: linear-gradient(to bottom right, #faf5ff, #f3e8ff); /* bg-gradient-to-br from-purple-50 to-purple-100 */
+            border-color: #e9d5ff; /* border-purple-200 */
+        }
+        .skill-card-pink {
+            background-image: linear-gradient(to bottom right, #fdf2f8, #fce7f3); /* bg-gradient-to-br from-pink-50 to-pink-100 */
+            border-color: #fbcfe8; /* border-pink-200 */
+        }
+        .skill-card-green {
+            background-image: linear-gradient(to bottom right, #f0fdf4, #dcfce7); /* bg-gradient-to-br from-green-50 to-green-100 */
+            border-color: #bbf7d0; /* border-green-200 */
+        }
+        .skill-card-orange {
+            background-image: linear-gradient(to bottom right, #fff7ed, #ffedd5); /* bg-gradient-to-br from-orange-50 to-orange-100 */
+            border-color: #fed7aa; /* border-orange-200 */
+        }
+        .skill-card-teal {
+            background-image: linear-gradient(to bottom right, #f0fdfa, #ccfbf1); /* bg-gradient-to-br from-teal-50 to-teal-100 */
+            border-color: #99f6e4; /* border-teal-200 */
+        }
+
+        .skill-card-header {
+            text-align: center;
+        }
+
+        .skill-icon-circle {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem; /* mb-4 */
+            padding: 1rem; /* p-4 */
+            border-radius: 9999px; /* rounded-full */
+            width: fit-content;
+            color: #fff;
+            font-size: 1.5rem; /* text-2xl */
+        }
+
+        .skill-icon-blue {
+            background-color: #3b82f6; /* bg-blue-500 */
+        }
+        .skill-icon-purple {
+            background-color: #a855f7; /* bg-purple-500 */
+        }
+        .skill-icon-pink {
+            background-color: #ec4899; /* bg-pink-500 */
+        }
+        .skill-icon-green {
+            background-color: #22c55e; /* bg-green-500 */
+        }
+        .skill-icon-orange {
+            background-color: #f97316; /* bg-orange-500 */
+        }
+        .skill-icon-teal {
+            background-color: #14b8a6; /* bg-teal-500 */
+        }
+
+        .skill-title {
+            font-size: 1.25rem; /* text-xl */
+        }
+
+        .skill-card-blue .skill-title {
+            color: #1d4ed8; /* text-blue-700 */
+        }
+        .skill-card-purple .skill-title {
+            color: #7e22ce; /* text-purple-700 */
+        }
+        .skill-card-pink .skill-title {
+            color: #be185d; /* text-pink-700 */
+        }
+        .skill-card-green .skill-title {
+            color: #047857; /* text-green-700 */
+        }
+        .skill-card-orange .skill-title {
+            color: #c2410c; /* text-orange-700 */
+        }
+        .skill-card-teal .skill-title {
+            color: #0f766e; /* text-teal-700 */
+        }
+
+        .skill-card-content p {
+            color: #4b5563; /* text-gray-600 */
+            text-align: center;
+        }
+
+        .skill-summary-wrapper {
+            text-align: center;
+            margin-top: 3rem; /* mt-12 */
+        }
+
+        .skill-summary-card {
+            background-image: linear-gradient(to right, #e0e7ff, #f3e8ff); /* bg-gradient-to-r from-indigo-100 to-purple-100 */
+            border: 2px solid #a5b4fc; /* border-2 border-indigo-300 */
+            max-width: 48rem; /* max-w-3xl */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .skill-summary-content {
+            padding: 2rem; /* p-8 */
+        }
+
+        .skill-summary-content h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: #1e40af; /* text-indigo-800 */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .skill-summary-content p {
+            color: #374151; /* text-gray-700 */
+            font-size: 1.125rem; /* text-lg */
+            line-height: 1.625; /* leading-relaxed */
+        }
+
+        /* Facilities Gallery Section */
+        .facilities-section {
+            padding-top: 4rem; /* py-16 */
+            padding-bottom: 4rem; /* py-16 */
+            background-image: linear-gradient(to right, #eff6ff, #faf5ff); /* bg-gradient-to-r from-blue-50 to-purple-50 */
+        }
+
+        .facility-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* grid-cols-2 */
+            gap: 1rem; /* gap-4 */
+            margin-bottom: 2rem; /* mb-8 */
+        }
+
+        .facility-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem; /* space-y-2 */
+        }
+
+        .facility-image {
+            width: 100%;
+            height: 225px;
+            object-fit: cover;
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            transition-property: transform;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+            cursor: pointer;
+        }
+
+        .facility-image:hover {
+            transform: scale(1.05); /* hover:scale-105 */
+        }
+
+        .facility-name {
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 500; /* font-medium */
+            text-align: center;
+            color: #374151; /* text-gray-700 */
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding-top: 4rem; /* py-16 */
+            padding-bottom: 4rem; /* py-16 */
+            background-color: #fffbeb; /* bg-yellow-50 */
+        }
+
+        .pricing-cards-grid {
+            max-width: 72rem; /* max-w-6xl */
+            margin-left: auto;
+            margin-right: auto;
+            display: grid;
+            gap: 2rem; /* gap-8 */
+        }
+
+        .pricing-card {
+            border: 2px solid; /* border-2 */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+        }
+
+        .pricing-card-blue {
+            border-color: #bfdbfe; /* border-blue-200 */
+        }
+        .pricing-card-green {
+            border-color: #bbf7d0; /* border-green-200 */
+        }
+
+        .pricing-card-header-blue {
+            background-image: linear-gradient(to right, #dbeafe, #bfdbfe); /* bg-gradient-to-r from-blue-100 to-blue-200 */
+            text-align: center;
+        }
+
+        .pricing-card-header-green {
+            background-image: linear-gradient(to right, #dcfce7, #bbf7d0); /* bg-gradient-to-r from-green-100 to-green-200 */
+            text-align: center;
+        }
+
+        .pricing-title {
+            font-size: 1.5rem; /* text-2xl */
+        }
+
+        .pricing-card-header-blue .pricing-title {
+            color: #1e40af; /* text-blue-800 */
+        }
+        .pricing-card-header-green .pricing-title {
+            color: #065f46; /* text-green-800 */
+        }
+
+        .pricing-card-content {
+            padding: 2rem; /* p-8 */
+        }
+
+        .price-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem; /* space-y-4 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-item span {
+            color: #4b5563; /* text-gray-700 */
+        }
+
+        .price-item .line-through {
+            text-decoration: line-through;
+            color: #6b7280; /* text-gray-500 */
+        }
+
+        .price-item.green-text span {
+            color: #16a34a; /* text-green-600 */
+            font-weight: 500; /* font-medium */
+        }
+
+        .price-item.green-text span:last-child {
+            font-weight: 700; /* font-bold */
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #d1d5db; /* border-gray-300 */
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .total-price {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 700; /* font-bold */
+        }
+
+        .total-price .text-blue-700 {
+            color: #1d4ed8;
+        }
+        .total-price .text-blue-600 {
+            color: #2563eb;
+        }
+        .total-price .text-green-700 {
+            color: #047857;
+        }
+        .total-price .text-green-600 {
+            color: #16a34a;
+        }
+        .total-price .text-yellow-800 {
+            color: #92400e;
+        }
+
+        .enroll-button {
+            width: 100%;
+            background-color: #ef4444; /* bg-red-500 */
+            color: #fff;
+            font-weight: 700; /* font-bold */
+            padding: 1rem; /* py-4 */
+            font-size: 1.125rem; /* text-lg */
+            border: none;
+            border-radius: 0.375rem; /* rounded-md */
+            cursor: pointer;
+            transition-property: background-color;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .enroll-button:hover {
+            background-color: #dc2626; /* hover:bg-red-600 */
+        }
+
+        .enroll-button-green {
+            background-color: #22c55e; /* bg-green-500 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        .enroll-button-green:hover {
+            background-color: #16a34a; /* hover:bg-green-600 */
+        }
+
+        .referral-box {
+            background-color: #fef3c7; /* bg-yellow-100 */
+            border: 2px solid #fcd34d; /* border-2 border-yellow-300 */
+            border-radius: 0.5rem; /* rounded-lg */
+            padding: 1.5rem; /* p-6 */
+        }
+
+        .referral-title {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 700; /* font-bold */
+            color: #92400e; /* text-yellow-800 */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .referral-button {
+            width: 100%;
+            background-color: #f97316; /* bg-orange-500 */
+            color: #fff;
+            font-weight: 700; /* font-bold */
+            padding: 0.75rem; /* py-3 */
+            margin-bottom: 1rem; /* mb-4 */
+            border: none;
+            border-radius: 0.375rem; /* rounded-md */
+            cursor: pointer;
+            transition-property: background-color;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .referral-button:hover {
+            background-color: #ea580c; /* hover:bg-orange-600 */
+        }
+
+        .referral-info {
+            font-size: 0.875rem; /* text-sm */
+            color: #4b5563; /* text-gray-600 */
+            display: flex;
+            flex-direction: column;
+        }
+        .referral-info > p {
+            margin-bottom: 0.25rem; /* Replaces space-y */
+        }
+        .referral-info > p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .pricing-footer {
+            text-align: center;
+            margin-top: 3rem; /* mt-12 */
+        }
+
+        .pricing-footer p {
+            color: #4b5563; /* text-gray-600 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding-top: 4rem; /* py-16 */
+            padding-bottom: 4rem; /* py-16 */
+            background-image: linear-gradient(to right, #f3e8ff, #fce7f3); /* bg-gradient-to-r from-purple-100 to-pink-100 */
+        }
+
+        .rating-summary {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem; /* gap-2 */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .rating-summary span {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 600; /* font-semibold */
+            color: #374151; /* text-gray-700 */
+        }
+
+        .star-icon-filled {
+            height: 1.5rem; /* h-6 */
+            width: 1.5rem; /* w-6 */
+            color: #f59e0b; /* text-yellow-500 */
+            font-size: 1.5rem;
+        }
+
+        .testimonial-cards-grid {
+            display: grid;
+            gap: 2rem; /* gap-8 */
+        }
+
+        .testimonial-card {
+            background-color: #fff;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+        }
+
+        .testimonial-content {
+            padding: 1.5rem; /* p-6 */
+        }
+
+        .testimonial-stars {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem; /* gap-1 */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .testimonial-stars .star-icon-filled {
+            height: 1rem; /* h-4 */
+            width: 1rem; /* w-4 */
+            font-size: 1rem;
+        }
+
+        .testimonial-text {
+            color: #4b5563; /* text-gray-600 */
+            margin-bottom: 1rem; /* mb-4 */
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600; /* font-semibold */
+            color: #9333ea; /* text-purple-600 */
+        }
+
+        .whatsapp-button-wrapper {
+            margin-top: 1rem; /* mt-4 */
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #22c55e; /* bg-green-500 */
+            color: #fff;
+            font-size: 1.125rem; /* text-lg */
+            padding: 0.75rem 2rem; /* px-8 py-3 */
+            border-radius: 9999px; /* rounded-full */
+            font-weight: 700; /* font-bold */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+            transform: var(--tw-transform);
+            text-decoration: none; /* Remove underline from link */
+        }
+
+        .whatsapp-button:hover {
+            background-color: #16a34a; /* hover:bg-green-600 */
+            transform: scale(1.05); /* hover:scale-105 */
+        }
+
+        .whatsapp-icon {
+            width: 24px;
+            height: 18px;
+            margin-right: 0.5rem; /* mr-2 */
+            border-radius: 0.5rem; /* rounded-lg */
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding-top: 4rem; /* py-16 */
+            padding-bottom: 4rem; /* py-16 */
+            background-color: #f0fdf4; /* bg-green-50 */
+        }
+
+        .faq-accordion {
+            max-width: 48rem; /* max-w-3xl */
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem; /* space-y-4 */
+        }
+
+        .accordion-item {
+            border: 1px solid #e9d5ff; /* border border-purple-200 */
+            border-radius: 0.5rem; /* rounded-lg */
+            padding-left: 1.5rem; /* px-6 */
+            padding-right: 1.5rem; /* px-6 */
+            overflow: hidden; /* For smooth collapse */
+        }
+
+        .accordion-trigger {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem; /* py-4 */
+            padding-bottom: 1rem; /* py-4 */
+            text-align: left;
+            font-weight: 600; /* font-semibold */
+            color: #7e22ce; /* text-purple-700 */
+            background-color: transparent;
+            border: none;
+            cursor: default; /* No click functionality */
+        }
+
+        .accordion-trigger:hover {
+            color: #9333ea; /* hover color */
+        }
+
+        .accordion-trigger .accordion-icon {
+            transition: none; /* No transition as no dynamic rotation */
+        }
+
+        .accordion-content {
+            /* Content is always visible without JS */
+            padding-bottom: 1rem; /* py-4 */
+        }
+
+        .accordion-content p {
+            color: #4b5563; /* text-gray-600 */
+        }
+
+        /* Contact Footer */
+        .contact-footer {
+            background-color: #1f2937; /* bg-gray-800 */
+            color: #fff;
+            padding-top: 3rem; /* py-12 */
+            padding-bottom: 3rem; /* py-12 */
+        }
+
+        .footer-header {
+            text-align: center;
+            margin-bottom: 2rem; /* mb-8 */
+        }
+
+        .footer-logo {
+            width: 80px;
+            height: 60px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem; /* mb-4 */
+            border-radius: 0.5rem; /* rounded-lg */
+        }
+
+        .footer-header h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        .footer-header p {
+            color: #d1d5db; /* text-gray-300 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        .footer-contact-grid {
+            display: grid;
+            gap: 2rem; /* gap-8 */
+            text-align: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem; /* gap-3 */
+        }
+
+        .contact-icon {
+            height: 1.25rem; /* h-5 */
+            width: 1.25rem; /* w-5 */
+            color: #a78bfa; /* text-purple-400 */
+            font-size: 1.25rem;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            margin-top: 2rem; /* mt-8 */
+            padding-top: 2rem; /* pt-8 */
+            border-top: 1px solid #374151; /* border-t border-gray-700 */
+        }
+
+        .footer-copyright p {
+            color: #9ca3af; /* text-gray-400 */
+            font-size: 0.875rem; /* text-sm */
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (min-width: 768px) {
+            /* md breakpoint */
+            .navbar-links-desktop {
+                display: flex;
+            }
+            .mobile-menu-button {
+                display: none;
+            }
+            .navbar-links-mobile {
+                display: none !important; /* Ensure it's hidden on desktop */
+            }
+
+            .hero-content {
+                padding: 2rem; /* md:p-8 */
+            }
+            .hero-content h1 {
+                font-size: 3.75rem; /* md:text-6xl */
+            }
+            .hero-content p {
+                font-size: 1.25rem; /* md:text-xl */
+            }
+
+            .section-header h2 {
+                font-size: 2.25rem; /* md:text-4xl */
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+            }
+
+            .about-content-grid {
+                grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+            }
+
+            .program-cards-grid {
+                grid-template-columns: repeat(3, 1fr); /* md:grid-cols-3 */
+            }
+
+            .activity-cards-grid {
+                grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+            }
+
+            .objective-cards-grid {
+                grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+            }
+
+            .skill-cards-grid {
+                grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+            }
+
+            .facility-gallery-grid {
+                grid-template-columns: repeat(3, 1fr); /* md:grid-cols-3 */
+            }
+
+            .pricing-cards-grid {
+                grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+            }
+
+            .testimonial-cards-grid {
+                grid-template-columns: repeat(3, 1fr); /* md:grid-cols-3 */
+            }
+
+            .footer-contact-grid {
+                grid-template-columns: repeat(3, 1fr); /* md:grid-cols-3 */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            /* lg breakpoint */
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr); /* lg:grid-cols-3 */
+            }
+
+            .activity-cards-grid {
+                grid-template-columns: repeat(3, 1fr); /* lg:grid-cols-3 */
+            }
+
+            .objective-cards-grid {
+                grid-template-columns: repeat(3, 1fr); /* lg:grid-cols-3 */
+            }
+
+            .skill-cards-grid {
+                grid-template-columns: repeat(3, 1fr); /* lg:grid-cols-3 */
+            }
+
+            .facility-gallery-grid {
+                grid-template-columns: repeat(4, 1fr); /* lg:grid-cols-4 */
+            }
+        }
+    </style>
+</head>
+<body>
+     Navbar 
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="#home" class="navbar-logo">
+                <img src="/images/little-unicorn-preschool-logo.png" alt="Little Unicorn Preschool Logo">
+            </a>
+            <div class="navbar-links-desktop">
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#programs" class="nav-link">Programs</a>
+                <a href="#facilities" class="nav-link">Facilities</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#contact" class="nav-link">Contact Us</a>
+                <a href="#apply-enrollment" class="register-button">Register Now!</a>
+            </div>
+            <div class="mobile-menu-button">
+                <input type="checkbox" id="mobile-menu-toggle-checkbox" class="mobile-menu-checkbox">
+                <label for="mobile-menu-toggle-checkbox" class="menu-toggle-label">
+                    <span class="menu-icon">&#9776;</span>  Hamburger icon 
+                    <span class="close-icon">&#10006;</span>  X icon 
+                </label>
+            </div>
+        </div>
+        <div class="navbar-links-mobile">
+            <a href="#about" class="nav-link-mobile">About Us</a>
+            <a href="#programs" class="nav-link-mobile">Programs</a>
+            <a href="#facilities" class="nav-link-mobile">Facilities</a>
+            <a href="#pricing" class="nav-link-mobile">Pricing</a>
+            <a href="#testimonials" class="nav-link-mobile">Testimonials</a>
+            <a href="#faq" class="nav-link-mobile">FAQ</a>
+            <a href="#contact" class="nav-link-mobile">Contact Us</a>
+            <a href="#apply-enrollment" class="register-button-mobile">Register Now!</a>
+        </div>
+    </nav>
+
+     Hero Section 
+    <section id="home" class="hero-section">
+        <img src="/colorful-preschool-classroom-new.png" alt="Colorful preschool classroom" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Welcome to Little Unicorn Preschool</h1>
+            <p>Nurturing young minds, fostering creativity, and building a strong foundation for lifelong learning in a magical environment.</p>
+            <a href="#programs" class="hero-button">Explore Our Programs</a>
+        </div>
+    </section>
+
+     About Us Section (repurposed from What's Included) 
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Little Unicorn Preschool</h2>
+                <p>Where every child's potential becomes reality</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="card benefit-card">
+                    <div class="card-content flex items-center gap-4">
+                        <span class="check-icon">&#10003;</span>
+                        <span class="text-gray-700 font-medium">Small class sizes (max 12 children)</span>
+                    </div>
+                </div>
+                <div class="card benefit-card">
+                    <div class="card-content flex items-center gap-4">
+                        <span class="check-icon">&#10003;</span>
+                        <span class="text-gray-700 font-medium">Certified early childhood educators</span>
+                    </div>
+                </div>
+                <div class="card benefit-card">
+                    <div class="card-content flex items-center gap-4">
+                        <span class="check-icon">&#10003;</span>
+                        <span class="text-gray-700 font-medium">Nutritious meals and snacks included</span>
+                    </div>
+                </div>
+                <div class="card benefit-card">
+                    <div class="card-content flex items-center gap-4">
+                        <span class="check-icon">&#10003;</span>
+                        <span class="text-gray-700 font-medium">Daily outdoor play and activities</span>
+                    </div>
+                </div>
+                <div class="card benefit-card">
+                    <div class="card-content flex items-center gap-4">
+                        <span class="check-icon">&#10003;</span>
+                        <span class="text-gray-700 font-medium">School readiness preparation</span>
+                    </div>
+                </div>
+                <div class="card benefit-card">
+                    <div class="card-content flex items-center gap-4">
+                        <span class="check-icon">&#10003;</span>
+                        <span class="text-gray-700 font-medium">Art, music, and STEM programs</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-content-grid">
+                <div class="about-image-wrapper">
+                    <img src="/why-parents-choose-us.png" alt="Preschool activities" class="about-image">
+                </div>
+                <div class="about-text-content">
+                    <h3>Why Parents Choose Us</h3>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="star-icon">&#9733;</span>
+                            <div>
+                                <h4>Award-Winning Curriculum</h4>
+                                <p>Recognized by early childhood education experts</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="users-icon">&#128100;</span>
+                            <div>
+                                <h4>Low Student-Teacher Ratio</h4>
+                                <p>Maximum 6:1 ratio ensures personalized attention</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="shield-icon">&#128737;</span>
+                            <div>
+                                <h4>Safe & Secure Environment</h4>
+                                <p>State-of-the-art security and safety protocols</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-button-wrapper">
+                <a href="#apply-enrollment" class="section-button">Discover Our Unique Approach</a>
+            </div>
+        </div>
+    </section>
+
+     Programs Section (combining Learning Activities, Care Programs, Knowledge Objectives, 21st Century Skills) 
+    <section id="programs" class="programs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Comprehensive Programs</h2>
+                <p>Designed to foster holistic development and future-ready skills</p>
+            </div>
+
+             Care Programs Sub-section 
+            <div class="subsection">
+                <h3>Care Programs</h3>
+                <div class="program-cards-grid">
+                    <div class="card program-card program-card-yellow">
+                        <div class="program-image-wrapper">
+                            <img src="/program-infant-care-v2.png" alt="Infant care program with babies and caregivers" class="program-image">
+                        </div>
+                        <div class="card-header program-card-header-yellow">
+                            <div class="program-icon-circle">👶</div>
+                            <h4 class="program-title">Infant Care</h4>
+                            <p class="program-description">3-18 Months</p>
+                        </div>
+                        <div class="card-content program-card-content">
+                            <ul>
+                                <li><span class="check-icon-small">&#10003;</span><span>Individualized feeding schedules</span></li>
+                                <li><span class="check-icon-small">&#10003;</span><span>Sensory exploration activities</span></li>
+                                <li><span class="check-icon-small">&#10003;</span><span>Tummy time and motor development</span></li>
+                                <li><span class="check-icon-small">&#10003;</span><span>Gentle music and movement</span></li>
+                                <li><span class="check-icon-small">&#10003;</span><span>Loving, nurturing environment</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card program-card program-card-blue">
+                        <div class="program-image-wrapper">
+                            <img src="/program-early-years-v3.png" alt="Early years program with toddlers playing and learning" class="program-image">
+                        </div>
+                        <div class="card-header program-card-header-blue">
+                            <div class="program-icon-circle">🧒</div>
+                            <h4 class="program-title">Early Years</h4>
+                            <p class="program-description">18 Months-4 Years</p>
+                        </div>
+                        <div class="card-content program-card-content">
+                            <ul>
+                                <li><span class="check-icon-small">&#10003;</span><span>Language development activities</span></li>
+                                <li><span class="check-icon-small">&#10003;</span><span>Social skills building</span></li>
+                                <li><span class="check-icon-small">&#10003;</span><span>Creative arts and crafts</span></li>
+                                <li><span class="check-icon-small">&#10003;</span><span>Outdoor exploration</span></li>
+                                <li><span class="check-icon-small">&#10003;</span><span>Early literacy introduction</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card program-card program-card-green">
+                        <div class="program-image-wrapper">
+                            <img src="/program-early-years-v2.jpeg" alt="Kindergarten program with children in structured learning" class="program-image">
+                        </div>
+                        <div class="card-header program-card-header-green">
+                            <div class="program-icon-circle">🎓</div>
+                            <h4 class="program-title">Kindergarten Years</h4>
+                            <p class="program-description">5-6 Years</p>
+                        </div>
+                        <div class="card-content program-card-content">
+                            <ul>
+                                <li><span class="check-icon-small">&#10003;</span><span>School readiness preparation</span></li>
+                                <li><span class="check-icon-small">&#10003;</span><span>Advanced literacy and numeracy</span></li>
+                                <li><span class="check-icon-small">&#10003;</span><span>Critical thinking development</span></li>
+                                <li><span class="check-icon-small">&#10003;</span><span>Leadership opportunities</span></li>
+                                <li><span class="check-icon-small">&#10003;</span><span>Primary school transition support</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             Learning Activities Sub-section 
+            <div class="subsection">
+                <h3>Learning Activities</h3>
+                <div class="activity-cards-grid">
+                    <div class="card activity-card activity-card-red">
+                        <div class="activity-image-wrapper">
+                            <img src="/activity-taekwondo-new.png" alt="Children practicing Taekwondo" class="activity-image">
+                        </div>
+                        <div class="card-header activity-card-header">
+                            <div class="activity-icon-circle activity-icon-red">🥋</div>
+                            <h4 class="activity-title">Taekwondo</h4>
+                        </div>
+                        <div class="card-content activity-card-content">
+                            <p>Build discipline, confidence, and physical fitness through martial arts training designed for young learners.</p>
+                        </div>
+                    </div>
+
+                    <div class="card activity-card activity-card-pink">
+                        <div class="activity-image-wrapper">
+                            <img src="/activity-zumba-new.png" alt="Children dancing Zumba" class="activity-image">
+                        </div>
+                        <div class="card-header activity-card-header">
+                            <div class="activity-icon-circle activity-icon-pink">💃</div>
+                            <h4 class="activity-title">Zumba</h4>
+                        </div>
+                        <div class="card-content activity-card-content">
+                            <p>Fun dance fitness program that improves coordination, rhythm, and cardiovascular health.</p>
+                        </div>
+                    </div>
+
+                    <div class="card activity-card activity-card-orange">
+                        <div class="activity-image-wrapper">
+                            <img src="/activity-cooking-new.png" alt="Children baking and cooking" class="activity-image">
+                        </div>
+                        <div class="card-header activity-card-header">
+                            <div class="activity-icon-circle activity-icon-orange">👨‍🍳</div>
+                            <h4 class="activity-title">Baking/Cookery</h4>
+                        </div>
+                        <div class="card-content activity-card-content">
+                            <p>Hands-on cooking experiences that teach measurements, following instructions, and healthy eating habits.</p>
+                        </div>
+                    </div>
+
+                    <div class="card activity-card activity-card-green">
+                        <div class="activity-image-wrapper">
+                            <img src="/activity-science-new.png" alt="Children doing science experiments" class="activity-image">
+                        </div>
+                        <div class="card-header activity-card-header">
+                            <div class="activity-icon-circle activity-icon-green">🔬</div>
+                            <h4 class="activity-title">Science Discovery</h4>
+                        </div>
+                        <div class="card-content activity-card-content">
+                            <p>Explore the wonders of science through safe, age-appropriate experiments and discovery activities.</p>
+                        </div>
+                    </div>
+
+                    <div class="card activity-card activity-card-blue">
+                        <div class="activity-image-wrapper">
+                            <img src="/activity-music-new.png" alt="Children in music and movement class" class="activity-image">
+                        </div>
+                        <div class="card-header activity-card-header">
+                            <div class="activity-icon-circle activity-icon-blue">🎵</div>
+                            <h4 class="activity-title">Music & Movement</h4>
+                        </div>
+                        <div class="card-content activity-card-content">
+                            <p>Develop musical appreciation, rhythm, and gross motor skills through interactive music sessions.</p>
+                        </div>
+                    </div>
+
+                    <div class="card activity-card activity-card-purple">
+                        <div class="activity-image-wrapper">
+                            <img src="/activity-art-new.png" alt="Children doing creative arts and crafts" class="activity-image">
+                        </div>
+                        <div class="card-header activity-card-header">
+                            <div class="activity-icon-circle activity-icon-purple">🎨</div>
+                            <h4 class="activity-title">Creative Expression</h4>
+                        </div>
+                        <div class="card-content activity-card-content">
+                            <p>Foster creativity and self-expression through various art forms, crafts, and aesthetic activities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             Knowledge Objectives Sub-section 
+            <div class="subsection">
+                <h3>Knowledge Objectives</h3>
+                <p class="subsection-description">Identified by the Ministry of Education (MOE)</p>
+                <div class="badge-wrapper">
+                    <span class="badge badge-purple">MOE Approved Curriculum</span>
+                </div>
+                <div class="objective-cards-grid">
+                    <div class="card objective-card objective-card-purple">
+                        <div class="objective-image-wrapper">
+                            <img src="/objective-aesthetics-new-v2.png" alt="Children with painted hands expressing creativity" class="objective-image">
+                        </div>
+                        <div class="card-header objective-card-header">
+                            <div class="objective-icon-circle objective-icon-purple">&#127912;</div>
+                            <h4 class="objective-title">Aesthetics & Creative Expression</h4>
+                        </div>
+                        <div class="card-content objective-card-content">
+                            <p>Developing appreciation for beauty, creativity, and artistic expression through various art forms and creative activities.</p>
+                        </div>
+                    </div>
+
+                    <div class="card objective-card objective-card-green">
+                        <div class="objective-image-wrapper">
+                            <img src="/objective-discovery-new-v2.png" alt="Children on an outdoor nature walk discovering the world" class="objective-image">
+                        </div>
+                        <div class="card-header objective-card-header">
+                            <div class="objective-icon-circle objective-icon-green">🌍</div>
+                            <h4 class="objective-title">Discovery of the World</h4>
+                        </div>
+                        <div class="card-content objective-card-content">
+                            <p>Exploring and understanding the natural and social environment through hands-on investigation and discovery.</p>
+                        </div>
+                    </div>
+
+                    <div class="card objective-card objective-card-blue">
+                        <div class="objective-image-wrapper">
+                            <img src="/objective-language-new.png" alt="Children reading and developing language skills" class="objective-image">
+                        </div>
+                        <div class="card-header objective-card-header">
+                            <div class="objective-icon-circle objective-icon-blue">📚</div>
+                            <h4 class="objective-title">Language & Literacy</h4>
+                        </div>
+                        <div class="card-content objective-card-content">
+                            <p>Building strong foundation in communication, reading, writing, and language comprehension skills.</p>
+                        </div>
+                    </div>
+
+                    <div class="card objective-card objective-card-orange">
+                        <div class="objective-image-wrapper">
+                            <img src="/objective-motor-skills-new.png" alt="Children developing motor skills through physical activities" class="objective-image">
+                        </div>
+                        <div class="card-header objective-card-header">
+                            <div class="objective-icon-circle objective-icon-orange">🏃‍♂️</div>
+                            <h4 class="objective-title">Motor Skills Development</h4>
+                        </div>
+                        <div class="card-content objective-card-content">
+                            <p>Enhancing both fine and gross motor skills through physical activities, sports, and hands-on learning experiences.</p>
+                        </div>
+                    </div>
+
+                    <div class="card objective-card objective-card-red">
+                        <div class="objective-image-wrapper">
+                            <img src="/objective-numeracy-new.png" alt="Children learning numbers and mathematical concepts" class="objective-image">
+                        </div>
+                        <div class="card-header objective-card-header">
+                            <div class="objective-icon-circle objective-icon-red">🔢</div>
+                            <h4 class="objective-title">Numeracy</h4>
+                        </div>
+                        <div class="card-content objective-card-content">
+                            <p>Developing mathematical thinking, problem-solving skills, and understanding of numbers and patterns.</p>
+                        </div>
+                    </div>
+
+                    <div class="card objective-card objective-card-pink">
+                        <div class="objective-image-wrapper">
+                            <img src="/objective-social-emotional-new-v2.png" alt="Children and adults interacting, fostering social and emotional development" class="objective-image">
+                        </div>
+                        <div class="card-header objective-card-header">
+                            <div class="objective-icon-circle objective-icon-pink">❤️</div>
+                            <h4 class="objective-title">Social & Emotional Development</h4>
+                        </div>
+                        <div class="card-content objective-card-content">
+                            <p>Nurturing emotional intelligence, empathy, social skills, and positive relationships with peers and adults.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             21st Century Skills Sub-section 
+            <div class="subsection">
+                <h3>21st Century Skills</h3>
+                <p class="subsection-description">Focus On The 6 C's</p>
+                <div class="badge-wrapper">
+                    <span class="badge badge-indigo">Future-Ready Learning</span>
+                </div>
+                <div class="skill-cards-grid">
+                    <div class="card skill-card skill-card-blue">
+                        <div class="card-header skill-card-header">
+                            <div class="skill-icon-circle skill-icon-blue">&#128101;</div>
+                            <h4 class="skill-title">Collaboration</h4>
+                        </div>
+                        <div class="card-content skill-card-content">
+                            <p>Working effectively with others, sharing ideas, and contributing to group success through teamwork and cooperation.</p>
+                        </div>
+                    </div>
+
+                    <div class="card skill-card skill-card-purple">
+                        <div class="card-header skill-card-header">
+                            <div class="skill-icon-circle skill-icon-purple">🧠</div>
+                            <h4 class="skill-title">Critical Thinking</h4>
+                        </div>
+                        <div class="card-content skill-card-content">
+                            <p>Analyzing information, solving problems, making reasoned decisions, and thinking logically about complex situations.</p>
+                        </div>
+                    </div>
+
+                    <div class="card skill-card skill-card-pink">
+                        <div class="card-header skill-card-header">
+                            <div class="skill-icon-circle skill-icon-pink">&#127912;</div>
+                            <h4 class="skill-title">Creativity</h4>
+                        </div>
+                        <div class="card-content skill-card-content">
+                            <p>Generating original ideas, thinking outside the box, and approaching challenges with innovative solutions.</p>
+                        </div>
+                    </div>
+
+                    <div class="card skill-card skill-card-green">
+                        <div class="card-header skill-card-header">
+                            <div class="skill-icon-circle skill-icon-green">💚</div>
+                            <h4 class="skill-title">Care</h4>
+                        </div>
+                        <div class="card-content skill-card-content">
+                            <p>Showing empathy, compassion, and concern for others, the environment, and the community around us. and concern for others, the environment, and the community around us.</p>
+                        </div>
+                    </div>
+
+                    <div class="card skill-card skill-card-orange">
+                        <div class="card-header skill-card-header">
+                            <div class="skill-icon-circle skill-icon-orange">🤝</div>
+                            <h4 class="skill-title">Co-ordination</h4>
+                        </div>
+                        <div class="card-content skill-card-content">
+                            <p>Organizing activities, managing time effectively, and bringing together different elements to achieve common goals.</p>
+                        </div>
+                    </div>
+
+                    <div class="card skill-card skill-card-teal">
+                        <div class="card-header skill-card-header">
+                            <div class="skill-icon-circle skill-icon-teal">💬</div>
+                            <h4 class="skill-title">Communication</h4>
+                        </div>
+                        <div class="card-content skill-card-content">
+                            <p>Expressing ideas clearly, listening actively, and engaging in meaningful dialogue with diverse audiences.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-summary-wrapper">
+                    <div class="card skill-summary-card">
+                        <div class="card-content skill-summary-content">
+                            <h3>Preparing Your Child for Tomorrow</h3>
+                            <p>Our comprehensive approach to the 6 C's ensures your child develops the essential skills needed to thrive in an ever-changing world. Through integrated learning experiences, we nurture confident, capable, and caring individuals ready for future success.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-button-wrapper">
+                <a href="#apply-enrollment" class="section-button">Explore Our Curriculum</a>
+            </div>
+        </div>
+    </section>
+
+     Facilities Gallery Section 
+    <section id="facilities" class="facilities-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Amazing Facilities</h2>
+                <p>Explore our state-of-the-art learning environments</p>
+            </div>
+
+            <div class="facility-gallery-grid">
+                <div class="facility-item">
+                    <img src="/facility-classroom-new.png" alt="Bright and spacious classroom" class="facility-image">
+                    <p class="facility-name">Interactive Classrooms</p>
+                </div>
+                <div class="facility-item">
+                    <img src="/facility-playground-new.png" alt="Outdoor playground with modern equipment" class="facility-image">
+                    <p class="facility-name">Safe Playground</p>
+                </div>
+                <div class="facility-item">
+                    <img src="/facility-reading-corner-new.png" alt="Cozy reading corner with children's books" class="facility-image">
+                    <p class="facility-name">Reading Corner</p>
+                </div>
+                <div class="facility-item">
+                    <img src="/facility-kitchen-new.png" alt="Clean and functional teaching kitchen" class="facility-image">
+                    <p class="facility-name">Teaching Kitchen</p>
+                </div>
+                <div class="facility-item">
+                    <img src="/facility-children-washroom.png" alt="Colorful children's washroom with themed sinks" class="facility-image">
+                    <p class="facility-name">Children's Washroom</p>
+                </div>
+                <div class="facility-item">
+                    <img src="/facility-toilet.png" alt="Clean and colorful children's toilets" class="facility-image">
+                    <p class="facility-name">Children's Toilets</p>
+                </div>
+                <div class="facility-item">
+                    <img src="/facility-multi-purpose-hall.png" alt="Spacious multi-purpose hall with stage" class="facility-image">
+                    <p class="facility-name">Multi-purpose Hall</p>
+                </div>
+                <div class="facility-item">
+                    <img src="/facility-nap-room-new.png" alt="Comfortable nap room with cribs" class="facility-image">
+                    <p class="facility-name">Infant Nap Room</p>
+                </div>
+            </div>
+            <div class="section-button-wrapper">
+                <a href="#apply-enrollment" class="section-button">Schedule a Tour Today!</a>
+            </div>
+        </div>
+    </section>
+
+     Pricing Section 
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Program Pricing</h2>
+                <p>Transparent pricing with government subsidies and school discounts</p>
+            </div>
+
+            <div class="pricing-cards-grid">
+                 Infant Care Card 
+                <div class="card pricing-card pricing-card-blue">
+                    <div class="card-header pricing-card-header-blue">
+                        <h4 class="pricing-title">Infant Care (0 to 18 months)</h4>
+                    </div>
+                    <div class="card-content pricing-card-content">
+                        <div class="price-details">
+                            <div class="price-item">
+                                <span>Full Fee:</span>
+                                <span class="line-through">$2,200</span>
+                            </div>
+                            <div class="price-item green-text">
+                                <span>Basic Working Mum Subsidy:</span>
+                                <span>$600</span>
+                            </div>
+                            <div class="price-item green-text">
+                                <span>Discount from School:</span>
+                                <span>$200</span>
+                            </div>
+                            <hr class="divider">
+                            <div class="price-item total-price">
+                                <span class="text-blue-700">Total Payable:</span>
+                                <span class="text-blue-600">$1,400/month</span>
+                            </div>
+                        </div>
+                        <a href="#apply-enrollment" class="enroll-button enroll-button-red">Enroll Now!</a>
+                    </div>
+                </div>
+
+                 Childcare Card 
+                <div class="card pricing-card pricing-card-green">
+                    <div class="card-header pricing-card-header-green">
+                        <h4 class="pricing-title">Childcare (18 months to 6 years)</h4>
+                    </div>
+                    <div class="card-content pricing-card-content">
+                        <div class="price-details">
+                            <div class="price-item">
+                                <span>Actual Fee:</span>
+                                <span class="line-through">$1,688</span>
+                            </div>
+                            <div class="price-item green-text">
+                                <span>Basic Working Mum Subsidy:</span>
+                                <span>$300</span>
+                            </div>
+                            <div class="price-item green-text">
+                                <span>Discount from School:</span>
+                                <span>$200</span>
+                            </div>
+                            <hr class="divider">
+                            <div class="price-item total-price">
+                                <span class="text-green-700">Total Payable:</span>
+                                <span class="text-green-600">$1,188/month</span>
+                            </div>
+                        </div>
+                        <a href="#apply-enrollment" class="enroll-button enroll-button-green">Enroll Now!</a>
+
+                         Special Referral Rate 
+                        <div class="referral-box">
+                            <h3 class="referral-title">Special Referral Rate:</h3>
+                            <div class="price-details">
+                                <div class="price-item">
+                                    <span>Original Fee:</span>
+                                    <span>$1,688</span>
+                                </div>
+                                <div class="price-item total-price yellow-text">
+                                    <span class="text-yellow-800">With Referral Discount:</span>
+                                    <span class="text-green-600">$888/month</span>
+                                </div>
+                            </div>
+                            <a href="#apply-enrollment" class="referral-button">Learn More About Referrals!</a>
+                            <div class="referral-info">
+                                <p>Includes $300 subsidy + $500 school discount</p>
+                                <p>Valid until K2 for both children</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-footer">
+                <p>* Government subsidies are subject to eligibility criteria. School discounts apply to enrolled families.</p>
+                <a href="#apply-enrollment" class="section-button">View Enrollment Options</a>
+            </div>
+        </div>
+    </section>
+
+     Testimonials Section 
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Parents Are Saying</h2>
+                <div class="rating-summary">
+                    <span class="star-icon-filled">&#9733;</span>
+                    <span class="star-icon-filled">&#9733;</span>
+                    <span class="star-icon-filled">&#9733;</span>
+                    <span class="star-icon-filled">&#9733;</span>
+                    <span class="star-icon-filled">&#9733;</span>
+                    <span>4.9/5 Rating</span>
+                </div>
+            </div>
+
+            <div class="testimonial-cards-grid">
+                <div class="card testimonial-card">
+                    <div class="card-content testimonial-content">
+                        <div class="testimonial-stars">
+                            <span class="star-icon-filled">&#9733;</span>
+                            <span class="star-icon-filled">&#9733;</span>
+                            <span class="star-icon-filled">&#9733;</span>
+                            <span class="star-icon-filled">&#9733;</span>
+                            <span class="star-icon-filled">&#9733;</span>
+                        </div>
+                        <p class="testimonial-text">"My daughter absolutely loves Little Unicorn! The teachers are amazing and she's learned so much."</p>
+                        <p class="testimonial-author">- Aisha Rahman</p>
+                    </div>
+                </div>
+                <div class="card testimonial-card">
+                    <div class="card-content testimonial-content">
+                        <div class="testimonial-stars">
+                            <span class="star-icon-filled">&#9733;</span>
+                            <span class="star-icon-filled">&#9733;</span>
+                            <span class="star-icon-filled">&#9733;</span>
+                            <span class="star-icon-filled">&#9733;</span>
+                            <span class="star-icon-filled">&#9733;</span>
+                        </div>
+                        <p class="testimonial-text">"Best decision we made for our son's early education. The curriculum is fantastic!"</p>
+                        <p class="testimonial-author">- Priya Sharma</p>
+                    </div>
+                </div>
+                <div class="card testimonial-card">
+                    <div class="card-content testimonial-content">
+                        <div class="testimonial-stars">
+                            <span class="star-icon-filled">&#9733;</span>
+                            <span class="star-icon-filled">&#9733;</span>
+                            <span class="star-icon-filled">&#9733;</span>
+                            <span class="star-icon-filled">&#9733;</span>
+                            <span class="star-icon-filled">&#9733;</span>
+                        </div>
+                        <p class="testimonial-text">"The staff treats every child like family. We couldn't be happier with our choice."</p>
+                        <p class="testimonial-author">- Lim Wei Ling</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-button-wrapper">
+                <a href="#apply-enrollment" class="section-button" id="apply-enrollment">Apply for Enrollment Today!</a>
+                <div class="whatsapp-button-wrapper">
+                    <a href="https://wa.me/6585080588" target="_blank" rel="noopener noreferrer" class="whatsapp-button">
+                        <img src="/whatsapp.png" alt="WhatsApp Icon" class="whatsapp-icon">
+                        Chat with us on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     FAQ Section 
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="accordion-item">
+                    <div class="accordion-trigger">
+                        Are there any current enrollment discounts?
+                        <span class="accordion-icon">&#x25BC;</span>  Down arrow 
+                    </div>
+                    <div class="accordion-content">
+                        <p>We occasionally offer special enrollment discounts. Please check our pricing section or contact us directly for information on any current promotions.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-trigger">
+                        When can my child start the program?
+                        <span class="accordion-icon">&#x25BC;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We offer rolling enrollment throughout the year, subject to availability. Once your registration is complete, we will work with you to determine the best start date for your child.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-trigger">
+                        What age groups do you accept?
+                        <span class="accordion-icon">&#x25BC;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We accept children ages 3 months to 6 years old, with age-appropriate classrooms and activities for each developmental stage. Please see our 'Care Programs' section for more details.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-trigger">
+                        Can I schedule a tour of the facilities?
+                        <span class="accordion-icon">&#x25BC;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We encourage prospective families to visit our preschool. Please contact us via phone or email to schedule a personalized tour at your convenience.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-button-wrapper">
+                <a href="#apply-enrollment" class="section-button">Apply for Enrollment Today!</a>
+            </div>
+        </div>
+    </section>
+
+     Contact Footer 
+    <footer id="contact" class="contact-footer">
+        <div class="container">
+            <div class="footer-header">
+                <img src="/images/unicorn-emoji.png" alt="Little Unicorn Preschool Mascot" class="footer-logo">
+                <h3>Little Unicorn Preschool</h3>
+                <p>Where every child's potential becomes reality</p>
+            </div>
+
+            <div class="footer-contact-grid">
+                <div class="contact-item">
+                    <span class="contact-icon">&#128205;</span>
+                    <span>339 Anchorvale Rd, #03-01, Singapore 541339</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">&#128222;</span>
+                    <span>+65 8508 0588</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">&#9993;</span>
+                    <span>admin@littleunicornpreschool.com</span>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                <p>© 2025 Little Unicorn Preschool. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
